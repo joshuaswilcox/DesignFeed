@@ -1,3 +1,5 @@
+require "rvm/capistrano"
+set :rvm_ruby_string, :local 
 set :application, "Design Feed"
 set :deploy_to, "/var/www/designfeed"
 set :use_sudo, false 

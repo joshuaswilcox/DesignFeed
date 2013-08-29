@@ -33,6 +33,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem "capistrano"
+  gem 'rvm-capistrano'
 end
 group :test do
   gem 'capybara'
