@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130828212240) do
+ActiveRecord::Schema.define(version: 20130828214040) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,6 +45,21 @@ ActiveRecord::Schema.define(version: 20130828212240) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "feeds", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feeds_users", id: false, force: true do |t|
+    t.integer "feed_id"
+    t.integer "user_id"
+  end
+
+  add_index "feeds_users", ["feed_id", "user_id"], name: "index_feeds_users_on_feed_id_and_user_id", using: :btree
+  add_index "feeds_users", ["user_id"], name: "index_feeds_users_on_user_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"

@@ -1,4 +1,6 @@
 DesignFeed::Application.routes.draw do
+  resources :feeds
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => "home#index"
